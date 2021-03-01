@@ -2,15 +2,18 @@ import React from "react";
 
 const Header = () => {
   return (
-    <header>
-      <div className="flex bg-gray-800 text-white justify-center py-6 text-4xl font-light">
-        <h1>
-          <a className="font-pacifico" href="/">
-            react-blind-test
-          </a>
-        </h1>
-      </div>
-    </header>
+    <div className="flex items-center bg-cyan-700 text-white justify-center py-6 text-4xl font-light space-x-4">
+      <h1>
+        <a className="font-pacifico" href="/">
+          react-blind-test
+        </a>
+      </h1>
+      <img
+        className="w-16"
+        src="/images/play-logo.png"
+        alt="play button logo"
+      ></img>
+    </div>
   );
 };
 
