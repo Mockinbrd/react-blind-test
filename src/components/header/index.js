@@ -1,4 +1,10 @@
 import React from "react";
+import { rotateIn } from "react-animations";
+import styled, { keyframes } from "styled-components";
+
+const Tada = styled.div`
+  animation: 5s ${keyframes`${rotateIn}`};
+`;
 
 const Header = () => {
   return (
@@ -8,11 +14,13 @@ const Header = () => {
           react-blind-test
         </a>
       </h1>
-      <img
-        className="w-16"
-        src="/images/play-logo.png"
-        alt="play button logo"
-      ></img>
+      <Tada>
+        <img
+          className="w-16"
+          src="/images/play-logo.png"
+          alt="play button logo"
+        ></img>
+      </Tada>
     </div>
   );
 };
