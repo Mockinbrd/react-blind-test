@@ -2,7 +2,7 @@ import "../../App.css";
 import Header from "../header";
 import Landing from "../landing";
 import LogIn from "../login";
-import SignUp from "../signup";
+import Register from "../register";
 import Error from "../error";
 import Home from "../home";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -16,7 +16,7 @@ function App() {
           <Route exact path="/" component={Landing} />
           <Route path="/home" component={Home} />
           <Route path="/login" component={LogIn} />
-          <Route path="/register" component={SignUp} />
+          <Route path="/register" component={Register} />
           <Route component={Error} />
         </Switch>
       </Router>

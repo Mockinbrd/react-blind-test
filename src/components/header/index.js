@@ -8,7 +8,7 @@ const Bounce = styled.div`
 
 const Header = () => {
   return (
-    <div className="flex items-center bg-cyan-700 text-white justify-center py-6 text-4xl font-light space-x-6 border-b-2 border-gray-300 shadow-lg">
+    <div className="flex items-center bg-cyan-600 text-white justify-center py-6 text-4xl font-light space-x-6 border border-gray-800 shadow-lg">
       <h1>
         <a className="font-pacifico" href="/">
           react-blind-test
