@@ -1,4 +1,3 @@
-import "../../App.css";
 import Header from "../header";
 import Landing from "../landing";
 import LogIn from "../login";
