@@ -24,7 +24,7 @@ const Landing = () => {
             <SlideDown>
               <Link
                 type="button"
-                class="inline-flex justify-center tracking-wider font-semibold items-center px-6 py-4 w-80 border border-transparent text-xl rounded-md shadow text-white bg-cyan-500 hover:bg-cyan-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500"
+                class="inline-flex justify-center tracking-wider font-semibold items-center px-6 py-4 w-80 border border-cyan-600 text-xl rounded-md shadow text-cyan-700 bg-cyan-100 hover:bg-cyan-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-0 focus:ring-cyan-500"
                 to="/register"
               >
                 Inscription
@@ -35,7 +35,7 @@ const Landing = () => {
             <FadeIn>
               <Link
                 type="button"
-                class="inline-flex justify-center tracking-wider font-semibold items-center px-6 py-4 w-80 border border-transparent text-xl rounded-md shadow text-white bg-cyan-500 hover:bg-cyan-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500"
+                class="inline-flex justify-center tracking-wider font-semibold items-center px-6 py-4 w-80 border border-cyan-600 text-xl rounded-md shadow text-cyan-700 bg-cyan-100 hover:bg-cyan-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-0 focus:ring-cyan-500"
                 to="/login"
               >
                 Connexion
@@ -46,7 +46,7 @@ const Landing = () => {
             <SlideUp>
               <Link
                 type="button"
-                class="inline-flex justify-center tracking-wider font-medium items-center px-6 py-4 w-80 border border-gray-300 shadow text-lg rounded-md text-gray-700 bg-white hover:bg-gray-50 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500"
+                class="inline-flex justify-center tracking-wider font-medium items-center px-6 py-4 w-80 border border-gray-300 shadow text-lg rounded-md text-gray-600 bg-white hover:bg-gray-100 hover:text-gray-900 hover:border-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500"
                 to="/home"
               >
                 Continuer sans s'inscrire

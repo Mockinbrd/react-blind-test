@@ -15,12 +15,16 @@ const ParentSvgDiv = styled.div`
   ${tw`absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none`}
 `;
 
+const SubmitButton = styled(PrimaryButton)`
+  ${tw`px-5 py-2 w-80`}
+`;
+
 const Register = () => {
   return (
     <div className="flex flex-grow">
       <div className="m-auto">
-        <div className="grid grid-cols-1 gap-4 p-8">
-          <h1 className="text-center text-3xl text-gray-500 font-delius">Register</h1>
+        <div className="grid grid-cols-1 gap-4 p-8 shadow border rounded-lg bg-white">
+          <h1 className="text-center text-3xl text-gray-500 font-delius font-medium">Register</h1>
           <form className="w-80">
             <TwLabel htmlFor="email">Email</TwLabel>
             <ParentInputDiv>
@@ -61,10 +65,10 @@ const Register = () => {
                 placeholder="•••••••••"
               ></TextInput>
             </ParentInputDiv>
-            <div className="flex justify-center mt-8">
-              <PrimaryButton type="submit">
+            <div className="flex justify-center mt-10">
+              <SubmitButton type="submit">
                 Sign Up
-              </PrimaryButton>
+              </SubmitButton>
             </div>
           </form>
         </div>
