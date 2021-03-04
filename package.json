@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/core": "^7.13.8",
+    "@babel/plugin-transform-react-jsx": "^7.12.17",
     "@craco/craco": "^6.1.1",
     "@material-ui/core": "^4.11.3",
     "@testing-library/jest-dom": "^5.11.4",
@@ -52,8 +54,8 @@
   },
   "babelMacros": {
     "twin": {
-        "config": "./src/tailwind.config.js",
-        "preset": "styled-components"
-    } 
+      "config": "./tailwind.config.js",
+      "preset": "styled-components"
+    }
   }
 }
