@@ -17,7 +17,6 @@ Projet de cours en React ayant pour but de découvrir et d'approfondir le framew
 * **Styling** :
     ```
     Styles des composants avec la librairie styled-components pour une 
-    
     personnalisation plus poussées et des performances accrues.
     ```
 
