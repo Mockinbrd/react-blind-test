@@ -2,6 +2,13 @@ import React from "react";
 import tw, { styled } from "twin.macro";
 import PrimaryButton from "../../styles/button/primaryButton";
 
+import { fadeIn } from "react-animations";
+import { keyframes } from "styled-components";
+
+const ParentFlexGrowAndFadeIn = styled.div`
+  animation: 1s ${keyframes`${fadeIn}`};
+  ${tw`flex flex-grow`}
+`;
 const TextInput = styled.input`
   ${tw`focus:ring-cyan-600 focus:border-cyan-600 block w-full pl-10 sm:text-sm border-gray-300 rounded-md`}
 `;
@@ -20,7 +27,7 @@ const SubmitButton = styled(PrimaryButton)`
 
 const Register = () => {
   return (
-    <div className="flex flex-grow">
+    <ParentFlexGrowAndFadeIn>
       <div className="m-auto">
         <div className="grid grid-cols-1 gap-4 p-8 shadow border rounded-lg bg-primary">
           <h1 className="text-center text-3xl text-secondary font-delius">
@@ -107,7 +114,7 @@ const Register = () => {
           </form>
         </div>
       </div>
-    </div>
+    </ParentFlexGrowAndFadeIn>
   );
 };
 

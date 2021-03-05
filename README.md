@@ -4,32 +4,34 @@ Projet de cours en React ayant pour but de découvrir et d'approfondir le framew
 
 ## ⚙️ Fonctionnalités / Specs abordées
 
-* **Gestion d'utiisateurs** :
-    ```
-    Inscriptions + Auth. Stockés avec Firebase.
-    ```
+- **Gestion d'utiisateurs** :
 
-* **Authentification** :
-    ```
-    Authentification avec l'aide de Firebase.
-    ```
+  ```
+  Inscriptions + Auth. Stockés avec Firebase.
+  ```
 
-* **Styling** :
-    ```
-    Styles des composants avec la librairie styled-components pour une 
-    personnalisation plus poussées et des performances accrues.
-    ```
+- **Authentification** :
 
-* **Animations** :
-    ```
-    Implentation d'animations avec la librairie react-animations.
-    ```
+  ```
+  Authentification avec l'aide de Firebase.
+  ```
 
-* **Dark Mode** :
-    
-    ```
-    Possibilité de switch de thème ["light","dark"] depuis tout le site.
-    ```
+- **Styling** :
+
+  ```
+  Styles des composants avec les librairie styled-components et twin.macro pour une personnalisation plus poussées et des performances accrues.
+  ```
+
+- **Animations** :
+
+  ```
+  Implentation d'animations avec la librairie react-animations.
+  ```
+
+- **Dark Mode** :
+  ```
+  Possibilité de switch de thème ["light","dark"] depuis tout le site.
+  ```
 
 ## Available Scripts
 
@@ -47,4 +49,3 @@ You will also see any lint errors in the console.
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
-
