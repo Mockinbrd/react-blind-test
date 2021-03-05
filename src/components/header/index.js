@@ -22,7 +22,7 @@ const Header = () => {
           alt="play button logo"
         ></img>
       </Bounce>
-      <div className="absolute top-12 right-12">
+      <div className="absolute top-10 right-12">
         <ToggleDarkTheme />
       </div>
     </div>
