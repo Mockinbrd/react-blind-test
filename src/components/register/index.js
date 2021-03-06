@@ -1,14 +1,9 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { FirebaseContext } from "../firebase";
 import tw, { styled } from "twin.macro";
 import PrimaryButton from "../../styles/button/primaryButton";
+import CenteredContainer from "../../styles/layout/centeredContainer";
 
-import { fadeIn } from "react-animations";
-import { keyframes } from "styled-components";
-
-const ParentFlexGrowAndFadeIn = styled.div`
-  animation: 1s ${keyframes`${fadeIn}`};
-  ${tw`flex flex-grow`}
-`;
 const TextInput = styled.input`
   ${tw`focus:ring-cyan-600 focus:border-cyan-600 block w-full pl-10 sm:text-sm border-gray-300 rounded-md`}
 `;
@@ -23,17 +18,67 @@ const ParentSvgDiv = styled.div`
 `;
 const SubmitButton = styled(PrimaryButton)`
   ${tw`px-5 py-2 w-80 font-medium`}
+  ${({ disabled }) => disabled && tw`opacity-25 cursor-not-allowed`}
 `;
 
 const Register = () => {
+  const firebase = useContext(FirebaseContext);
+
+  const data = {
+    email: "",
+    password: "",
+    confirmPassword: "",
+  };
+
+  const [registerData, setRegisterData] = useState(data);
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    setRegisterData({ ...registerData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { email, password } = registerData;
+    firebase
+      .register(email, password)
+      .then((user) => {
+        setRegisterData({ ...data });
+        setError('');
+      })
+      .catch((error) => {
+        setError(error);
+        setRegisterData({ ...data });
+      });
+  };
+
+  const { email, password, confirmPassword } = registerData;
+
+  const displaySubmitButton =
+    email === "" || password === "" || password !== confirmPassword ? (
+      <SubmitButton disabled type="submit">
+        Sign Up
+      </SubmitButton>
+    ) : (
+      <SubmitButton type="submit">Sign Up</SubmitButton>
+    );
+
+  // Handle Error
+  const displayError = error !== "" && (
+    <span className="max-w-xs mt-2 border border-red-600 bg-red-100 text-red-600 rounded-md py-2 text-center">
+      {error.message}
+    </span>
+  );
+
   return (
-    <ParentFlexGrowAndFadeIn>
+    <CenteredContainer>
       <div className="m-auto">
         <div className="grid grid-cols-1 gap-4 p-8 shadow border rounded-lg bg-primary">
           <h1 className="text-center text-3xl text-secondary font-delius">
             Register
           </h1>
-          <form className="w-80">
+          {displayError}
+          <form className="w-80" onSubmit={handleSubmit}>
             <TwLabel htmlFor="email">Email</TwLabel>
             <ParentInputDiv>
               <ParentSvgDiv>
@@ -56,6 +101,8 @@ const Register = () => {
                 type="email"
                 id="email"
                 placeholder="you@example.com"
+                onChange={handleChange}
+                value={email}
               ></TextInput>
             </ParentInputDiv>
             <TwLabel htmlFor="password">Password</TwLabel>
@@ -80,6 +127,8 @@ const Register = () => {
                 type="password"
                 id="password"
                 placeholder="•••••••••"
+                onChange={handleChange}
+                value={password}
               ></TextInput>
             </ParentInputDiv>
             <TwLabel htmlFor="passwordConfirmation">
@@ -104,17 +153,19 @@ const Register = () => {
               </ParentSvgDiv>
               <TextInput
                 type="password"
-                id="passwordConfirmation"
+                id="confirmPassword"
                 placeholder="•••••••••"
+                onChange={handleChange}
+                value={confirmPassword}
               ></TextInput>
             </ParentInputDiv>
             <div className="flex justify-center mt-8">
-              <SubmitButton type="submit">Sign Up</SubmitButton>
+              {displaySubmitButton}
             </div>
           </form>
         </div>
       </div>
-    </ParentFlexGrowAndFadeIn>
+    </CenteredContainer>
   );
 };
 
