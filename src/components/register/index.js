@@ -3,6 +3,7 @@ import { FirebaseContext } from "../firebase";
 import tw, { styled } from "twin.macro";
 import PrimaryButton from "../../styles/button/primaryButton";
 import CenteredContainer from "../../styles/layout/centeredContainer";
+import { Link } from "react-router-dom";
 
 const TextInput = styled.input`
   ${tw`focus:ring-cyan-600 focus:border-cyan-600 block w-full pl-10 sm:text-sm border-gray-300 rounded-md`}
@@ -21,7 +22,7 @@ const SubmitButton = styled(PrimaryButton)`
   ${({ disabled }) => disabled && tw`opacity-25 cursor-not-allowed`}
 `;
 
-const Register = () => {
+const Register = (props) => {
   const firebase = useContext(FirebaseContext);
 
   const data = {
@@ -44,7 +45,8 @@ const Register = () => {
       .register(email, password)
       .then((user) => {
         setRegisterData({ ...data });
-        setError('');
+        setError("");
+        props.history.push("/home");
       })
       .catch((error) => {
         setError(error);
@@ -163,6 +165,9 @@ const Register = () => {
               {displaySubmitButton}
             </div>
           </form>
+          <div className="mt-2 text-secondary text-xs hover:underline">
+            <Link to="/login">Already have an account ? Log in instead.</Link>
+          </div>
         </div>
       </div>
     </CenteredContainer>
