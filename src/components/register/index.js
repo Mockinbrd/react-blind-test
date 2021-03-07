@@ -43,7 +43,13 @@ const Register = (props) => {
     const { email, password } = registerData;
     firebase
       .register(email, password)
-      .then((user) => {
+      .then((authUser) => {
+        return firebase.persistUser(authUser.user.uid).set({
+          name: email.split("@")[0],
+          email,
+        });
+      })
+      .then(() => {
         setRegisterData({ ...data });
         setError("");
         props.history.push("/home");

@@ -1,5 +1,6 @@
 import app from "firebase/app";
 import "firebase/auth";
+import "firebase/firestore";
 
 const fbConfig = {
   apiKey: "AIzaSyBbuV1k58dCVustGsc0U5ubvlFggfKqkts",
@@ -14,6 +15,7 @@ class Firebase {
   constructor() {
     app.initializeApp(fbConfig);
     this.auth = app.auth();
+    this.db = app.firestore();
   }
 
   // User Registration
@@ -26,6 +28,9 @@ class Firebase {
 
   // Log Out
   logout = () => this.auth.signOut();
+
+  // Create an user into the cloud firestore
+  persistUser = (id) => this.db.doc(`users/${id}`);
 }
 
 export default Firebase;
