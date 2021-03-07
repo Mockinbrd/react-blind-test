@@ -14,7 +14,7 @@
 .dark {
   --color-bg-primary: #2d3748;
   --color-bg-secondary: #283141;
-  --color-bg-header:#2d3748;
+  --color-bg-header: #2d3748;
   --color-text-primary: #f7fafc;
   --color-text-secondary: #e2e8f0;
   --color-text-accent: #06b6d4;
@@ -23,10 +23,10 @@
 .light {
   --color-bg-primary: #ffffff;
   --color-bg-secondary: #edf2f7;
-  --color-bg-header:#0891B2;
+  --color-bg-header: #0891b2;
   --color-text-primary: #2d3748;
   --color-text-secondary: #4a5568;
-  --color-text-accent: #0891B2;
+  --color-text-accent: #0891b2;
 }
 
 body {
@@ -60,6 +60,25 @@ code {
 }
 
 @keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.logo-loader {
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .logo-loader {
+    animation: logo-loader-spin infinite 3s linear;
+  }
+}
+
+@keyframes logo-loader-spin {
   from {
     transform: rotate(0deg);
   }
