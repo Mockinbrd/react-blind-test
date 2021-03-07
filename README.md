@@ -4,16 +4,22 @@ Projet de cours en React ayant pour but de découvrir et d'approfondir le framew
 
 ## ⚙️ Fonctionnalités / Specs abordées
 
-- **Gestion d'utiisateurs** :
-
-  ```
-  Inscriptions + Auth. Stockés avec Firebase.
-  ```
-
 - **Authentification** :
 
   ```
   Authentification avec l'aide de Firebase.
+  ```
+
+- **Gestion d'utiisateurs** :
+
+  ```
+  Session utilisateur avec Firebase + localStorage.
+  ```
+
+- **Base de données** :
+
+  ```
+  BDD en NoSQL avec Cloud Firestore.
   ```
 
 - **Styling** :
