@@ -44,9 +44,10 @@ const Register = (props) => {
     firebase
       .register(email, password)
       .then((authUser) => {
-        return firebase.persistUser(authUser.user.uid).set({
+        return firebase.fetchUserOrPersistIfNull(authUser.user.uid).set({
           name: email.split("@")[0],
           email,
+          gamesPlayed: 0
         });
       })
       .then(() => {

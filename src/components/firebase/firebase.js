@@ -30,7 +30,10 @@ class Firebase {
   logout = () => this.auth.signOut();
 
   // Create an user into the cloud firestore
-  persistUser = (id) => this.db.doc(`users/${id}`);
+  fetchUserOrPersistIfNull = (id) => this.db.doc(`users/${id}`);
+
+  // Fetch questions
+  fetchQuestions = () => this.db.collection('questions');
 }
 
 export default Firebase;

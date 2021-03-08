@@ -1,24 +1,40 @@
 import React, { useState, useContext, useEffect } from "react";
 import { FirebaseContext } from "../firebase";
-import Logout from "../logout";
+import LogOut from "../logout";
 import CenteredContainer from "../../styles/layout/centeredContainer";
 import BlindTest from "../blind-test";
 
 const Home = (props) => {
-  const [user, setUser] = useState(null);
   const firebase = useContext(FirebaseContext);
+  const [userSession, setUserSession] = useState(null);
+  const [userData, setUserData] = useState({});
 
   useEffect(() => {
-    let userListener = firebase.auth.onAuthStateChanged((userSession) => {
-      userSession ? setUser(userSession) : props.history.push("/");
+    let userListener = firebase.auth.onAuthStateChanged((user) => {
+      user ? setUserSession(user) : props.history.push("/");
     });
-
     return () => {
       userListener();
     };
   }, []);
 
-  return user === null ? (
+  useEffect(() => {
+    if (!!userSession) {
+      firebase
+        .fetchUserOrPersistIfNull(userSession.uid)
+        .get()
+        .then((doc) => {
+          if (doc && doc.exists) {
+            setUserData(doc.data());
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, [userSession]);
+
+  return userSession === null ? (
     <CenteredContainer>
       <div className="m-auto">
         <img
@@ -31,7 +47,7 @@ const Home = (props) => {
   ) : (
     <CenteredContainer>
       <div className="m-auto">
-        <Logout user={user} />
+        <LogOut user={userData} />
         <BlindTest />
       </div>
     </CenteredContainer>
