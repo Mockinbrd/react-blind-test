@@ -1,6 +1,7 @@
 import React from "react";
 import { bounce } from "react-animations";
 import styled, { keyframes } from "styled-components";
+import { ToggleDarkTheme } from "./toggleDarkTheme";
 
 const Bounce = styled.div`
   animation: 1s ${keyframes`${bounce}`};
@@ -8,8 +9,8 @@ const Bounce = styled.div`
 
 const Header = () => {
   return (
-    <div className="flex items-center bg-cyan-600 text-white justify-center py-6 text-4xl font-light space-x-6 shadow-lg">
-      <h1>
+    <div className="flex items-center bg-header justify-center py-6 space-x-6 shadow-lg">
+      <h1 className="text-4xl font-light text-white">
         <a className="font-pacifico" href="/">
           react-blind-test
         </a>
@@ -21,6 +22,9 @@ const Header = () => {
           alt="play button logo"
         ></img>
       </Bounce>
+      <div className="absolute top-10 right-12">
+        <ToggleDarkTheme />
+      </div>
     </div>
   );
 };
