@@ -8,11 +8,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
-<<<<<<< HEAD
-    <div className="flex flex-col min-h-screen bg-gray-50">
-=======
     <div className="flex flex-col min-h-screen bg-secondary">
->>>>>>> 0ec7f982101faed48d5214256227c56fb57e18df
       <Router>
         <Header />
         <Switch>

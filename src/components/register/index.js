@@ -79,29 +79,15 @@ const Register = (props) => {
     </span>
   );
 
-<<<<<<< HEAD
-const SubmitButton = styled(PrimaryButton)`
-  ${tw`px-5 py-2 w-80`}
-`;
-
-const Register = () => {
-=======
->>>>>>> 0ec7f982101faed48d5214256227c56fb57e18df
   return (
     <CenteredContainer>
       <div className="m-auto">
-<<<<<<< HEAD
-        <div className="grid grid-cols-1 gap-4 p-8 shadow border rounded-lg bg-white">
-          <h1 className="text-center text-3xl text-gray-500 font-delius font-medium">Register</h1>
-          <form className="w-80">
-=======
         <div className="grid grid-cols-1 gap-4 p-8 shadow border rounded-lg bg-primary">
           <h1 className="text-center text-3xl text-secondary font-delius">
             Register
           </h1>
           {displayError}
           <form className="w-80" onSubmit={handleSubmit}>
->>>>>>> 0ec7f982101faed48d5214256227c56fb57e18df
             <TwLabel htmlFor="email">Email</TwLabel>
             <ParentInputDiv>
               <ParentSvgDiv>
@@ -182,15 +168,8 @@ const Register = () => {
                 value={confirmPassword}
               ></TextInput>
             </ParentInputDiv>
-<<<<<<< HEAD
-            <div className="flex justify-center mt-10">
-              <SubmitButton type="submit">
-                Sign Up
-              </SubmitButton>
-=======
             <div className="flex justify-center mt-8">
               {displaySubmitButton}
->>>>>>> 0ec7f982101faed48d5214256227c56fb57e18df
             </div>
           </form>
           <div className="mt-2 text-secondary text-xs hover:underline">
