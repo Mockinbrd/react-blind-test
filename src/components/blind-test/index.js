@@ -4,6 +4,8 @@ import styled from "styled-components";
 import tw from "twin.macro";
 import PrimaryButton from "../../styles/button/primaryButton";
 import fadeAudio from "../../helpers/FadeAudio";
+import badAnswerSound from "../../sounds/bad-answer.wav";
+import goodAnswerSound from "../../sounds/good-answer.wav";
 
 const PlayingButton = styled(PrimaryButton)`
   ${tw`px-6 py-4 w-80 text-xl font-semibold`}
@@ -46,11 +48,13 @@ const BlindTest = () => {
     fadeAudio(audio);
     e.target.classList.remove("bg-secondary", "hover:bg-primary");
     if (value === questions[step].answer) {
+      playAnswerValidationSound(true);
       e.target.classList.add("bg-green-600");
       isGood = true;
       const inc = score + 1;
       setScore(inc);
     } else {
+      playAnswerValidationSound(false);
       e.target.classList.add("bg-red-600");
     }
     const inc = step + 1;
@@ -78,6 +82,16 @@ const BlindTest = () => {
     newAudio.play();
   };
 
+  const playAnswerValidationSound = (good) => {
+    let newAudio;
+    if (good === true) {
+      newAudio = new Audio(goodAnswerSound);
+    } else {
+      newAudio = new Audio(badAnswerSound);
+    }
+    newAudio.play();
+  };
+
   const endGame = () => {
     console.log("end");
   };
@@ -85,7 +99,7 @@ const BlindTest = () => {
   useEffect(() => {
     if (step !== null && step === maxSteps) return;
     if (step !== null) {
-      playAudio(questions[step].audio);
+      playAudio(questions[step]?.audio);
     }
   }, [step]);
 
@@ -138,7 +152,9 @@ const BlindTest = () => {
     endGame();
     return (
       <div className="grid grid-cols-1 gap-4 p-8 border shadow bg-primary rounded-lg">
-        <h1 className=" text-primary text-center text-xl">Score : {score}</h1>
+        <h1 className="text-primary text-center text-xl">
+          Final score : {score} / {maxSteps}
+        </h1>
       </div>
     );
   }
