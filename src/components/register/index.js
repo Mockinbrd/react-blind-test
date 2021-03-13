@@ -47,7 +47,7 @@ const Register = (props) => {
         return firebase.fetchUserOrPersistIfNull(authUser.user.uid).set({
           name: email.split("@")[0],
           email,
-          gamesPlayed: 0
+          gamesPlayed: 0,
         });
       })
       .then(() => {
@@ -168,6 +168,14 @@ const Register = (props) => {
                 value={confirmPassword}
               ></TextInput>
             </ParentInputDiv>
+            {/* TODO: Implement a file storage */}
+            {/* <TwLabel htmlFor="avatar">Avatar</TwLabel>
+            <ParentInputDiv>
+              <FileInput
+                type="file"
+                onChange={(e) => console.log(e.target.files)}
+              ></FileInput>
+            </ParentInputDiv> */}
             <div className="flex justify-center mt-8">
               {displaySubmitButton}
             </div>

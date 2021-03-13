@@ -58,14 +58,14 @@ const BlindTest = (props) => {
     if (value === questions[step].answer) {
       playAnswerValidationSound(true);
       e.target.classList.add("bg-green-600");
-      setCheers("Well done !");
+      setCheers("Bonne réponse !");
       isGood = true;
       const inc = score + 1;
       setScore(inc);
     } else {
       playAnswerValidationSound(false);
       e.target.classList.add("bg-red-600");
-      setCheers("Wrong !");
+      setCheers("Aïe !");
     }
     const inc = step + 1;
     setTimeout(() => {

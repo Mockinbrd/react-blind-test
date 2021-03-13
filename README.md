@@ -2,9 +2,25 @@
 
 Projet de cours en React ayant pour but de découvrir et d'approfondir le framework. Thème noyau : un blind-test.
 
+## 🔱 Routing
+
+```js
+  <Router>
+    <Header />
+    <Switch>
+      <Route exact path="/" component={Landing} />
+      <Route path="/home" component={Home} />
+      <Route path="/login" component={LogIn} />
+      <Route path="/register" component={Register} />
+      <Route path="/profile" component={Profile} />
+      <Route component={Error} />
+    </Switch>
+  </Router>
+```
+
 ## ⚙️ Fonctionnalités / Specs abordées
 
-- **Authentification** :
+- **Authentification** (`/register` & `/login`) :
 
   - Authentification avec l'aide de Firebase.
 
@@ -16,7 +32,7 @@ Projet de cours en React ayant pour but de découvrir et d'approfondir le framew
 
   - BDD en NoSQL avec Cloud Firestore.
 
-- **Module de Blind-Test** :
+- **Module de Blind-Test** (`/home`) :
 
   - Choix du nombres de questions (2 à 6 pour le moment)
   - Fetch des questions en BDD
@@ -25,6 +41,10 @@ Projet de cours en React ayant pour but de découvrir et d'approfondir le framew
   - Mise en pause de l'audio en fondu pour une écoute plus agréable
   - Gestion bonne/mauvaise réponse avec retour couleur, textuel + bip sonore
   - Affichage du score final + push en BDD
+
+- **Page profil utilisateur** (`/profile`) :
+
+  - Profil utilisateur regroupant ses infos personnelles et le nombre de parties jouées
 
 - **Styling** :
 
