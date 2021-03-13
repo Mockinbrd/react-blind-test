@@ -75,7 +75,7 @@ const Register = (props) => {
   // Handle Error
   const displayError = error !== "" && (
     <span className="max-w-xs mt-2 border border-red-600 bg-red-100 text-red-600 rounded-md py-2 text-center">
-      {error.message}
+      {error?.message ? error.message : error}
     </span>
   );
 

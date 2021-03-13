@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <div className="flex items-center bg-header justify-center py-6 space-x-6 shadow-lg">
       <h1 className="text-4xl font-light text-white">
-        <a className="font-pacifico" href="/">
+        <a className="font-pacifico" href="/home">
           react-blind-test
         </a>
       </h1>

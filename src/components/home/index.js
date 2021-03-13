@@ -16,6 +16,7 @@ const Home = (props) => {
     return () => {
       userListener();
     };
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -32,6 +33,7 @@ const Home = (props) => {
           console.log(error);
         });
     }
+    // eslint-disable-next-line
   }, [userSession]);
 
   return userSession === null ? (
@@ -48,7 +50,7 @@ const Home = (props) => {
     <CenteredContainer>
       <div className="m-auto">
         <LogOut user={userData} />
-        <BlindTest />
+        <BlindTest user={userData} uid={userSession.uid} />
       </div>
     </CenteredContainer>
   );
