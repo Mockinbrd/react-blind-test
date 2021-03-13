@@ -3,6 +3,7 @@ import { FirebaseContext } from "../firebase";
 import styled from "styled-components";
 import tw from "twin.macro";
 import PrimaryButton from "../../styles/button/primaryButton";
+import fadeAudio from "../../helpers/FadeAudio";
 
 const PlayingButton = styled(PrimaryButton)`
   ${tw`px-6 py-4 w-80 text-xl font-semibold`}
@@ -22,7 +23,6 @@ const BlindTest = () => {
   const [step, setStep] = useState(null);
   const [score, setScore] = useState(0);
   const [audio, setAudio] = useState(null);
-  const [isPlaying, setIsPlaying] = useState(false);
 
   const getQuestions = async () => {
     setLoading(true);
@@ -43,7 +43,7 @@ const BlindTest = () => {
   const checkAnswer = async (e) => {
     const value = e.target.innerText;
     let isGood = false;
-    audio.pause();
+    fadeAudio(audio);
     e.target.classList.remove("bg-secondary", "hover:bg-primary");
     if (value === questions[step].answer) {
       e.target.classList.add("bg-green-600");
@@ -68,11 +68,12 @@ const BlindTest = () => {
   const playAudio = (url) => {
     let newAudio = new Audio(url);
     newAudio.addEventListener("play", (_) => {
-      setIsPlaying(true);
+      newAudio.play();
     });
     newAudio.addEventListener("pause", (_) => {
-      setIsPlaying(false);
+      newAudio.pause();
     });
+    newAudio.volume = 0.51;
     setAudio(newAudio);
     newAudio.play();
   };
