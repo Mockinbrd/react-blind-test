@@ -107,7 +107,7 @@ const BlindTest = (props) => {
     const incGamesPlayed = props.user.gamesPlayed + 1;
     try {
       const usrRef = firebase.fetchUserOrPersistIfNull(props.uid);
-      usrRef.set(
+      await usrRef.set(
         {
           gamesPlayed: incGamesPlayed,
         },

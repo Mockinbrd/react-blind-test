@@ -4,6 +4,7 @@ import LogIn from "../login";
 import Register from "../register";
 import Error from "../error";
 import Home from "../home";
+import Profile from "../user/profile";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path="/home" component={Home} />
           <Route path="/login" component={LogIn} />
           <Route path="/register" component={Register} />
+          <Route path="/profile" component={Profile} />
           <Route component={Error} />
         </Switch>
       </Router>
